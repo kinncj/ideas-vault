@@ -1,4 +1,4 @@
-import type { Idea, Competitor, GrowthMetric } from '../constants';
+import type { Idea, Competitor } from '../constants';
 import * as webllm from '@mlc-ai/web-llm';
 
 // AI-powered idea analyzer using local LLM (runs in browser via WebGPU)
@@ -289,7 +289,7 @@ Required JSON format (return ONLY the JSON, no other text):
   }
 
   // Heuristic-based analysis (original logic)
-  private async analyzeWithHeuristics(title: string, description: string, tags: string[]): Promise<Partial<Idea>> {
+  private async analyzeWithHeuristics(_title: string, description: string, tags: string[]): Promise<Partial<Idea>> {
     // Simulate processing delay
     await new Promise(resolve => setTimeout(resolve, 1500));
     
@@ -557,7 +557,7 @@ Required JSON format (return ONLY the JSON, no other text):
       'Bloated feature set causing confusion and steep learning curve'
     ];
 
-    selected.forEach((name, i) => {
+    selected.forEach((name, _i) => {
       const strengthIdx = Math.floor(Math.random() * strengthTemplates.length);
       const weaknessIdx = Math.floor(Math.random() * weaknessTemplates.length);
       
@@ -576,30 +576,6 @@ Required JSON format (return ONLY the JSON, no other text):
     });
 
     return competitors;
-  }
-
-  private detectIndustries(keywords: string[], tags: string[]): string[] {
-    const allText = [...keywords, ...tags.map(t => t.replace('#', ''))].join(' ').toLowerCase();
-    const industries: string[] = [];
-
-    const industryMap = [
-      { keywords: ['software', 'app', 'platform', 'saas'], industry: 'SaaS' },
-      { keywords: ['ai', 'intelligence', 'learning', 'automation'], industry: 'AI' },
-      { keywords: ['health', 'medical', 'wellness'], industry: 'Healthcare' },
-      { keywords: ['finance', 'payment', 'banking', 'crypto'], industry: 'FinTech' },
-      { keywords: ['education', 'learning', 'training'], industry: 'EdTech' },
-      { keywords: ['market', 'ecommerce', 'shop', 'retail'], industry: 'E-commerce' },
-      { keywords: ['social', 'community', 'network'], industry: 'Social' },
-      { keywords: ['productivity', 'workflow', 'efficiency'], industry: 'Productivity' },
-    ];
-
-    industryMap.forEach(({ keywords: kws, industry }) => {
-      if (kws.some(kw => allText.includes(kw))) {
-        industries.push(industry);
-      }
-    });
-
-    return industries.length > 0 ? industries : ['Technology', 'Digital'];
   }
 
   private calculateReadinessScore(
