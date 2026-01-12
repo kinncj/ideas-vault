@@ -27,11 +27,14 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: 'ideasvault-ui/package-lock.json'
 
       - name: Install dependencies
+        working-directory: ./ideasvault-ui
         run: npm ci
 
       - name: Build
+        working-directory: ./ideasvault-ui
         run: npm run build
 
       - name: Setup Pages
@@ -40,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './ideasvault-ui/dist'
 
   deploy:
     environment:
