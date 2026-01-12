@@ -186,7 +186,7 @@ ideasvault/
 ├── .github/                      # GitHub configuration
 │   ├── workflows/                # CI/CD for static site deployment
 │   └── instructions/             # Copilot instructions
-├── .opencode/                    # OpenCode AI agents configuration
+├── .opencode/                    # Development agents configuration
 │   ├── agent/                    # Specialist agents
 │   └── README.md                 # Agent usage documentation
 ├── docs/                         # Comprehensive documentation
@@ -271,9 +271,19 @@ See [deployment documentation](./docs/deployment/) for detailed guides.
 
 ## 🔄 Development Workflow
 
-This project uses an AI-powered development workflow with specialized agents. See [AGENTS.md](./AGENTS.md) for details.
+### Local Development
+1. Fork the repository and clone locally
+2. Create a feature branch for your changes
+3. Make changes and test locally
+4. Submit a pull request with clear description
 
-> **Note**: Agent references to backend, infrastructure, and database development apply to **future development** only. Current focus is on frontend enhancements.
+### Code Standards
+- Follow existing code style and patterns
+- Run linters before committing (`npm run lint`)
+- Write tests for new functionality
+- Update documentation as needed
+
+For detailed development guidelines, see [AGENTS.md](./AGENTS.md).
 
 ## 📚 Documentation
 
@@ -450,7 +460,7 @@ We chose AGPL-3.0 to ensure:
 - **Design Inspiration**: Modern SaaS applications with dark themes
 - **Technology Stack**: React, Vite, Tailwind CSS communities
 - **Open Source**: All the amazing open-source projects this relies on
-- **AI Agents**: OpenCode agent system for collaborative development
+- **Contributors**: Everyone who helps improve Ideas Vault
 
 ---
 
