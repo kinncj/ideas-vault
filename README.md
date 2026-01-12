@@ -182,36 +182,59 @@ See [docs/architecture/](./docs/architecture/) for proposed future architectural
 ## 📁 Project Structure
 
 ```
-ideasvault/
-├── .github/                      # GitHub configuration
-│   ├── workflows/                # CI/CD for static site deployment
-│   └── instructions/             # Copilot instructions
+ideas-vault/
+├── .github/                      # GitHub Actions workflows
+│   ├── workflows/                # CI/CD pipelines
+│   └── instructions/             # GitHub Copilot instructions
 ├── .opencode/                    # Development agents configuration
-│   ├── agent/                    # Specialist agents
-│   └── README.md                 # Agent usage documentation
-├── docs/                         # Comprehensive documentation
-│   ├── architecture/             # Architecture (current + proposed future)
-│   ├── product/                  # Product specifications
-│   ├── api/                      # API documentation (PROPOSED/FUTURE)
-│   ├── deployment/               # Deployment guides (static hosting)
-│   └── development/              # Developer guides
-├── ideasvault-ui/                # React frontend application (CURRENT)
+│   ├── agent/                    # Specialized development agents
+│   ├── command/                  # Custom agent commands
+│   └── skill/                    # Agent skills
+├── docs/                         # Complete project documentation
+│   ├── product/                  # Product specs, features, domain model
+│   ├── architecture/             # System & frontend architecture (current)
+│   ├── development/              # Developer guides, testing, code style
+│   ├── deployment/               # Deployment & CI/CD documentation
+│   └── future/                   # Proposed backend & API documentation
+├── ideasvault-ui/                # React frontend application ⭐ MAIN CODE
 │   ├── src/
-│   │   ├── components/           # React components
-│   │   ├── hooks/                # Custom React hooks
-│   │   ├── types/                # TypeScript type definitions
-│   │   ├── utils/                # Utility functions
-│   │   └── storage/              # LocalStorage persistence layer
+│   │   ├── components/           # React UI components
+│   │   │   ├── Dashboard.tsx     # Main idea grid view
+│   │   │   ├── CaptureModal.tsx  # Multi-modal idea capture
+│   │   │   ├── IdeaDetailView.tsx # Detailed analysis view
+│   │   │   ├── LandingPage.tsx   # App landing page
+│   │   │   └── ...
+│   │   ├── utils/                # Core business logic
+│   │   │   ├── aiAnalyzer.ts     # Simulated AI analysis
+│   │   │   ├── storage.ts        # LocalStorage operations
+│   │   │   └── speechRecognition.ts  # Voice capture
+│   │   ├── App.tsx               # Main application component
+│   │   ├── main.tsx              # Application entry point
+│   │   └── constants.ts          # App-wide constants
 │   ├── public/                   # Static assets
-│   └── package.json
-├── tests/                        # Test suites
-│   └── e2e/                      # Playwright E2E tests
-├── AGENTS.md                     # Development squad documentation
+│   ├── package.json              # Dependencies & scripts
+│   └── vite.config.ts            # Vite build configuration
+├── tests/                        # Test suites (future)
+├── AGENTS.md                     # Development workflow & agents guide
+├── WHY_AGPL.md                   # License rationale
 ├── LICENSE                       # AGPL-3.0 License
 └── README.md                     # This file
 
-Note: No backend or infrastructure directories exist yet.
+Note: This is a frontend-only application. No backend code exists yet.
 ```
+
+### Key Components
+
+The application code in `ideasvault-ui/src/` contains:
+
+- **Dashboard** - Main view showing all captured ideas in a grid layout
+- **CaptureModal** - Multi-modal input (text, voice, image) for capturing new ideas
+- **IdeaDetailView** - Detailed view with simulated AI analysis, charts, and metrics
+- **LandingPage** - Initial welcome screen with feature highlights
+- **Storage** - LocalStorage wrapper for persisting ideas client-side
+- **AI Analyzer** - Heuristic algorithms simulating market research and scoring
+
+All AI analysis is **simulated** using predefined templates and heuristic calculations. No external AI APIs are called.
 
 ## 🚀 Getting Started
 
@@ -227,8 +250,8 @@ That's it! No backend, database, or complex setup required.
 
 ```bash
 # Clone the repository
-git clone https://github.com/kinncj/ideasvault.git
-cd ideasvault
+git clone https://github.com/kinncj/ideas-vault.git
+cd ideas-vault
 
 # Navigate to frontend
 cd ideasvault-ui
@@ -290,42 +313,35 @@ For detailed development guidelines, see [AGENTS.md](./AGENTS.md).
 Comprehensive documentation is available in the `docs/` directory:
 
 ### Product Documentation
-- [Product Overview](./docs/product/README.md)
-- [Features & Capabilities](./docs/product/features.md)
-- [User Stories](./docs/product/user-stories.md)
-- [Domain Model](./docs/product/domain-model.md)
+- [Product Overview](./docs/product/README.md) - What Ideas Vault does and why
+- [Features & Capabilities](./docs/product/features.md) - Complete feature list
+- [User Stories](./docs/product/user-stories.md) - User personas and scenarios
+- [Domain Model](./docs/product/domain-model.md) - Core domain concepts
 
-### Architecture Documentation
-- [Architecture Overview](./docs/architecture/README.md)
-- [System Architecture](./docs/architecture/system-architecture.md)
-- [Frontend Architecture](./docs/architecture/frontend-architecture.md)
-- [Backend Architecture](./docs/architecture/backend-architecture.md)
-- [Data Architecture](./docs/architecture/data-architecture.md)
-- [Architecture Decision Records](./docs/architecture/adr/)
+### Architecture Documentation (Current Implementation)
+- [Architecture Overview](./docs/architecture/README.md) - High-level architecture
+- [System Architecture](./docs/architecture/system-architecture.md) - Overall system design
+- [Frontend Architecture](./docs/architecture/frontend-architecture.md) - React app structure
+- [Architecture Decision Records](./docs/architecture/adr/) - Key architectural decisions
 
 ### Developer Documentation
-- [Development Guide](./docs/development/README.md)
-- [Frontend Development](./docs/development/frontend-guide.md)
-- [Backend Development](./docs/development/backend-guide.md)
-- [Testing Guide](./docs/development/testing-guide.md)
-- [Code Style Guide](./docs/development/code-style.md)
-
-### API Documentation (Proposed/Future)
-> **Note**: No backend currently exists. API documentation represents **proposed future architecture**.
-
-- [API Overview](./docs/api/README.md) - Proposed REST API design
-- [REST API Reference](./docs/api/rest-api.md) - Proposed endpoint specifications
-- [Authentication](./docs/api/authentication.md) - Proposed auth approach
-- [Error Handling](./docs/api/error-handling.md) - Proposed error patterns
+- [Development Guide](./docs/development/README.md) - How to contribute code
+- [Frontend Development](./docs/development/frontend-guide.md) - React/TypeScript guide
+- [Testing Guide](./docs/development/testing-guide.md) - Testing strategies and tools
+- [Code Style Guide](./docs/development/code-style.md) - Coding standards
 
 ### Deployment Documentation
-> Current deployment focuses on static site hosting. Kubernetes/Docker docs are for future backend implementation.
+- [Deployment Overview](./docs/deployment/README.md) - Deployment options and guides
+- [CI/CD Pipeline](./docs/deployment/cicd.md) - GitHub Actions workflows
 
-- [Deployment Overview](./docs/deployment/README.md) - Static hosting guide
-- [Static Site Deployment](./docs/deployment/docker.md) - GitHub Pages, Netlify, Vercel
-- [CI/CD Pipeline](./docs/deployment/cicd.md) - Automated static site deployment
-- [Kubernetes Deployment](./docs/deployment/kubernetes.md) - Proposed/Future
-- [Docker Deployment](./docs/deployment/docker.md) - Proposed/Future
+### Future/Proposed Documentation
+> **Note**: The `docs/future/` directory contains documentation for features not yet implemented, useful for contributors planning to add backend functionality.
+
+- [Backend Architecture](./docs/future/architecture/backend-architecture.md) - Proposed backend design
+- [Data Architecture](./docs/future/architecture/data-architecture.md) - Proposed database schema
+- [Backend Development Guide](./docs/future/backend-guide.md) - .NET development guidelines
+- [API Documentation](./docs/future/api/) - Proposed REST API design
+- [Advanced Deployment](./docs/future/deployment/) - Docker, Kubernetes, monitoring
 
 ## 🤝 Contributing
 
@@ -450,8 +466,8 @@ We chose AGPL-3.0 to ensure:
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/kinncj/ideasvault/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/kinncj/ideasvault/discussions)
+- **Issues**: [GitHub Issues](https://github.com/kinncj/ideas-vault/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/kinncj/ideas-vault/discussions)
 - **Documentation**: [docs/](./docs/)
 - **Email**: [Open an issue instead]
 
