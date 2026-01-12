@@ -1,0 +1,5 @@
+{
+  "name": "infrastructure",
+  "description": "Invoke the Infrastructure Specialist Agent (Containers + K8s + Terraform + GitHub Actions)",
+  "instructions": "file:.opencode/agents/infrastructure.md"
+}

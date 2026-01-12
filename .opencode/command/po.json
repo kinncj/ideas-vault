@@ -1,0 +1,5 @@
+{
+  "name": "po",
+  "description": "Invoke the Product Owner Agent (DDD + Specification writing)",
+  "instructions": "file:.opencode/agents/po.md"
+}

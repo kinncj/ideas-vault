@@ -1,0 +1,5 @@
+{
+  "name": "frontend",
+  "description": "Invoke the Frontend Specialist Agent (Vite + React + Mantine + SOLID)",
+  "instructions": "file:.opencode/agents/frontend.md"
+}

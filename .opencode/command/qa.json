@@ -1,0 +1,5 @@
+{
+  "name": "qa",
+  "description": "Invoke the QA Specialist Agent (Unit/Integration/E2E + Playwright)",
+  "instructions": "file:.opencode/agents/qa.md"
+}

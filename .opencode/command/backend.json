@@ -1,0 +1,5 @@
+{
+  "name": "backend",
+  "description": "Invoke the Backend Specialist Agent (.NET + SOLID principles)",
+  "instructions": "file:.opencode/agents/backend.md"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "orchestrator",
+  "description": "Invoke the Orchestrator Agent to coordinate and delegate tasks across the squad",
+  "instructions": "file:.opencode/agents/orchestrator.md"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "technical-writer",
+  "description": "Invoke the Technical Writer Agent (Technical documentation specialist)",
+  "instructions": "file:.opencode/agents/technical-writer.md"
+}
